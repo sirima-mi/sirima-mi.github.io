@@ -1,4 +1,4 @@
-# Hello world
+# Github for Developers Course
 ยินดีต้อนรับทุกท่านที่มาเยี่ยมชมเว็บไซต์
 # Project HTML
 # Project CSS
