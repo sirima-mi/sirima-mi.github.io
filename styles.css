@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: url(picture/pic01.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 100px;
+    height: 250px;
+    opacity: 90%;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px #111;
+
+}
+body {
+    background-color: bisque;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.sticky {
+    position: sticky;
+    top: 0;
+    nav {
+        background-color: #111;
+        padding: 20px;
+        border-bottom: 15px solid #ff8c8cd7;
+        text-align: center;
+        opacity: 90%;
+        
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+            padding: 20px;
+        }
+        a:hover {
+            background-color: tomato;
+            color: #fff;
+            margin: 0px;
+            border: 0px;
+        }
+        a:active {
+            background-color: orange;
+            color: #fff;
+        }
+        
+    }
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+    
+}
+.drop-content {
+    display: none;
+    position: absolute;
+    box-shadow: 5px 5px 15px 0px red;
+    background-color: #e73f6fb5 ;
+    min-width:160px;
+    margin: 18px 0px;
+
+}
+.drop-content a {
+    display: block;
+}
+.drop-content a:hover {
+    background-color: #fff;
+}
+.dropdown:hover .drop-content {
+    display: block;
+}
+
+
+
+main {
+    padding: 30px;
+    height: 4000px;
+    .main-container {
+        background-color: skyblue;
+        padding: 50px;
+        margin: 20px 0px;
+        border-radius: 40px;
+
+        .main-title {
+            text-decoration: underline;
+            text-align: center;
+            color: #fff;
+        }
+        .main-info {
+            margin: 20px 5px 0px 0px;
+            text-indent: 50px;
+            overflow: auto;
+            
+        }
+        .main-btn {
+            background-color: orange;
+            padding: 3px 10px;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            left: 90%;
+            border-radius: 30px;
+            
+        }
+        .main-btn:hover {
+            background-color: green;
+            color: #fff;
+            border: 3px solid #fff;
+        }
+        .main-btn:active {
+            background-color: red;
+            border: #111;
+            color: white;
+        }
+    }
+    .main-container:hover {
+        border: 5px solid #fff;
+    }
+    .main-home {
+        .main-btn-home {
+            background-color: gold;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 40px;
+            display: inline-block;
+            padding: 3px 10px;
+            position: fixed;
+            left: 90%;
+            top: 90%;
+        }
+        .main-btn-home:hover {
+            border: 3px solid #fff;
+        }
+        .main-btn-home:active {
+            background-color: green;
+        }
+    }
+    #table01 {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        
+        width: 100%;
+    }
+    #table01 th, #table01 td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    #table01 th {
+        background-color: tomato;
+        color: #fff;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    #table01 tr:hover {
+        background-color: #ddd;
+    }
+    #table01 tr:nth-child(even) {
+        background-color:#5d5d4f;
+    }
+    .gallery {
+        border: 1px solid #ccc;
+    }
+    .gallery:hover {
+        border: 1px solid #777;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+    .desc {
+        padding: 15px;
+        text-align: center;
+    }
+    .responsive {
+        padding: 0px 6px;
+        float: left;
+        width: 24.99999%;
+    }
+    @media only screen and (max-width: 700px) {
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+    @media only screen and (max-width: 500px) {
+        .responsive {
+            width: 100%;
+        }
+    }
+    .clearfix:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px;
+    text-align: center;
+    border-top: 50px solid #842b2b;
+    text-shadow: 2px 2px 5px #111;
+}
