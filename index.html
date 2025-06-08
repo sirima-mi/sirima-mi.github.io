@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลงทะเบียนค่าย English Camp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ลงทะเบียน English Camp</h1>
+            <p>สำหรับนักเรียนระดับมัธยมศึกษาตอนปลาย</p>
+        </header>
+
+        <section class="stats-section">
+            <h2>สถานะการรับสมัคร</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <p>ผู้สมัครปัจจุบัน</p>
+                    <span id="currentApplicants" class="stat-number">0</span>
+                </div>
+                <div class="stat-item">
+                    <p>คงเหลือ</p>
+                    <span id="remainingApplicants" class="stat-number">0</span>
+                </div>
+                <div class="stat-item">
+                    <p>ยอดเต็ม</p>
+                    <span id="maxApplicants" class="stat-number">100</span>
+                </div>
+            </div>
+            <div id="fullCapacityAlert" class="alert-message full-capacity-alert" style="display: none;">
+                <p>⚠️ ขออภัย! ยอดผู้สมัครเต็มแล้ว ไม่สามารถลงทะเบียนได้ในขณะนี้</p>
+            </div>
+        </section>
+
+        <section class="registration-form">
+            <h2>กรอกข้อมูลผู้สมัคร</h2>
+            <form id="applicantForm">
+                <div class="form-group">
+                    <label for="studentId">รหัสนักเรียน <span class="required">*</span></label>
+                    <input type="number" id="studentId" name="studentId" placeholder="กรอกรหัสนักเรียน 5 หลัก (ตัวเลขเท่านั้น)" min="10000" max="99999" required maxlength="5">
+                    <small id="studentIdError" class="error-message"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="prefix">คำนำหน้า <span class="required">*</span></label>
+                    <select id="prefix" name="prefix" required>
+                        <option value="">เลือกคำนำหน้า</option>
+                        <option value="นาย">นาย</option>
+                        <option value="นางสาว">นางสาว</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">ชื่อ <span class="required">*</span></label>
+                    <input type="text" id="firstName" name="firstName" placeholder="กรอกชื่อจริง" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">นามสกุล <span class="required">*</span></label>
+                    <input type="text" id="lastName" name="lastName" placeholder="กรอกนามสกุล" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">ระดับชั้น <span class="required">*</span></label>
+                    <select id="grade" name="grade" required>
+                        <option value="">เลือกระดับชั้น</option>
+                        <option value="มัธยมศึกษาปีที่ 1">มัธยมศึกษาปีที่ 4</option>
+                        <option value="มัธยมศึกษาปีที่ 2">มัธยมศึกษาปีที่ 5</option>
+                        <option value="มัธยมศึกษาปีที่ 3">มัธยมศึกษาปีที่ 6</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="room">ห้อง <span class="required">*</span></label>
+                    <select id="room" name="room" required>
+                        <option value="">เลือกห้อง</option>
+                        <option value="ห้อง 1">ห้อง 1</option>
+                        <option value="ห้อง 2">ห้อง 2</option>
+                        <option value="ห้อง 3">ห้อง 3</option>
+                        <option value="ห้อง 4">ห้อง 4</option>
+                        <option value="ห้อง 5">ห้อง 5</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn primary">ยืนยันการสมัคร</button>
+                    <button type="button" id="editBtn" class="btn secondary" style="display: none;">แก้ไขข้อมูล</button>
+                    <button type="button" id="deleteBtn" class="btn danger" style="display: none;">ลบข้อมูล</button>
+                    <button type="button" id="clearFormBtn" class="btn tertiary">ล้างข้อมูล</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="latest-applicants-section">
+            <h2>ผู้สมัคร 5 คนล่าสุด</h2>
+            <div id="latestApplicantsList" class="applicant-list">
+                <p id="noLatestApplicants" style="text-align: center; color: #666;">ยังไม่มีผู้สมัครล่าสุด</p>
+            </div>
+        </section>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalMessage"></p>
+            <div id="modalData" class="modal-data"></div>
+            <div class="modal-buttons">
+                <button id="modalConfirmBtn" class="btn primary" style="display: none;">ยืนยัน</button>
+                <button id="modalCancelBtn" class="btn secondary" style="display: none;">ยกเลิก</button>
+                <button id="modalOkBtn" class="btn primary" style="display: none;">ตกลง</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
